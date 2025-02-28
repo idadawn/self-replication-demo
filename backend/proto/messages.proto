@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package experiment;
+
+message LogMessage {
+  string timestamp = 1;
+  string level = 2;
+  string content = 3;
+  map<string, string> metadata = 4;
+}
+
+message ResourceMetrics {
+  double cpu_usage = 1;
+  double memory_usage = 2;
+  int32 process_count = 3;
+  map<string, double> custom_metrics = 4;
+}
+
+message ExperimentStatus {
+  string experiment_id = 1;
+  string status = 2;
+  string current_step = 3;
+  repeated string errors = 4;
+}
+
+message WebSocketMessage {
+  string type = 1;
+  oneof payload {
+    LogMessage log = 2;
+    ResourceMetrics metrics = 3;
+    ExperimentStatus status = 4;
+    string error = 5;
+  }
+} 

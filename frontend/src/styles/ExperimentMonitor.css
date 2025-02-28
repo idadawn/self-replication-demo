@@ -1,0 +1,36 @@
+.monitor-container {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 20px;
+}
+
+.terminal-view {
+  background: #1e1e1e;
+  border-radius: 4px;
+  padding: 12px;
+  margin: 8px 0;
+}
+
+.terminal-view pre {
+  color: #fff;
+  margin: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.log-step {
+  margin-bottom: 16px;
+}
+
+.log-step.error .terminal-view {
+  border: 1px solid #ff4d4f;
+}
+
+.resource-item {
+  margin-bottom: 16px;
+}
+
+.side-panel {
+  position: sticky;
+  top: 20px;
+} 
